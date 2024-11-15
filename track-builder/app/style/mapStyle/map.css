@@ -1,0 +1,22 @@
+#map {
+    display: grid;
+    gap: 2px;
+    width: 80vw;
+    height:95vh;
+    aspect-ratio: 1; /* Das Raster bleibt quadratisch */
+    border: 2px solid #000;
+  }
+  
+  .tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .tile:hover {
+    background-color: #d0d0d0;
+  }
