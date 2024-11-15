@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./style/main.css";
 
 export const metadata: Metadata = {
   title: "track-builder",

@@ -1,4 +1,9 @@
 #mapEditorMenu{
-    background-color:green;
+    text-align: center;
+    border-style:solid;
     width:18vw;
+  
+}
+div{
+    color:green;
 }
