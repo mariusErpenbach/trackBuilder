@@ -1,0 +1,10 @@
+[
+    {
+      "id": "road-000",
+      "name": "Standard Road",
+      "lanes": 1,
+      "maxSpeed": 50,
+      "symbol": "⬆️"
+    }
+  ]
+  

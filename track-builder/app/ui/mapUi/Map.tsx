@@ -1,29 +1,30 @@
 import { useState, useEffect } from "react";
 
-type Tile = JSX.Element;
-
-export default function Map() {
-  const [mapSize, setMapSize] = useState<number>(64); // Standardgröße der Map (64 Tiles)
-  const [tiles, setTiles] = useState<Tile[]>([]);
-
-  // Berechne die Anzahl der Spalten (Quadratwurzel der Anzahl der Tiles)
+export default function Map(props: any) {
+  const [mapSize, setMapSize] = useState<number>(64);
   const columns = Math.sqrt(mapSize);
 
-  useEffect(() => {
-    const generatedTiles: Tile[] = Array.from({ length: mapSize }, (_, index) => (
-      <div key={index} className="tile">
-        {index + 1}
-      </div>
-    ));
-    setTiles(generatedTiles);
-  }, [mapSize]);
+  function handleTileClick(index: number) {
+    const clickedTile = document.getElementById("tile" + index);
+    if (clickedTile) {
+      clickedTile.innerText = props.toggledOption
+        ? `${props.toggledOption.symbol}`
+        : "No road selected";
+    }
+  }
 
   return (
-    <div>
-
-      <div id="map" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
-        {tiles}
-      </div>
+    <div id="map" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
+      {Array.from({ length: mapSize }).map((_, index) => (
+        <div
+          key={index}
+          id={`tile${index}`}
+          className="tile"
+          onClick={() => handleTileClick(index)}
+        >
+          {index + 1}
+        </div>
+      ))}
     </div>
   );
 }
