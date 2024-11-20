@@ -6,9 +6,12 @@ const [selectedOption, setSelectedOption] = useState<Array<string>>(["",""])
 function selectOption (e:any){
   let selectedElement = document.getElementById(e.target.id)
   if(selectedOption[0]!==e.target.id){ // user clicked a new option to select.
-    props.toggleOption(e.target.id) 
-    setSelectedOption([e.target.id, e.target.className])
-    selectedElement? selectedElement.className += " selected":console.log("no element with clicked id")  
+    const oldOption = document.getElementById(selectedOption[0])// delete highlight effect on old element
+    if(oldOption){oldOption.className = selectedOption[1]}
+    props.toggleOption(e.target.id) // pass the selected option to the page component.
+    setSelectedOption([e.target.id, e.target.className]) // safe the selected option in a local state.
+    selectedElement? selectedElement.className += " selected":console.log("no element with clicked id") // highlight clicked element  
+    
   } else { // user clicked an selected option again -> untoggle the option.
     selectedElement? selectedElement.className = selectedOption[1]:""
     setSelectedOption(["",""]);
@@ -23,7 +26,11 @@ function selectOption (e:any){
           ⬆️ 
           </div> 
       </div>
-
+      <div id="optionBox">
+          <div className="editorOption" id="deleteOption" onClick={selectOption}> 
+          🧽
+          </div>
+      </div>
 
           </div>
 }

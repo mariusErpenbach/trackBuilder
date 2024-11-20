@@ -1,0 +1,6 @@
+/* standart lane width = 20%*/
+.road-000{
+    background-color:grey;
+    width:20%;
+    height:100%;
+}

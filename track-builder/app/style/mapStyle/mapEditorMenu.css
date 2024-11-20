@@ -10,9 +10,10 @@
         justify-content: center;
         font-size:2em;
         }
-    .selected{
-        border-style:solid;
-        border-color:greenyellow;
-    } 
+   
     }
 }
+.selected{
+    border-style:solid;
+    border-color:greenyellow;
+} 

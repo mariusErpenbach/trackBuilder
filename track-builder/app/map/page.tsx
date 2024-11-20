@@ -5,12 +5,15 @@ import Map from "../ui/mapUi/Map";
 import roads from "../data/roads.json";
 
 export default function MapPage() {
-  const [toggledOption, setToggledOption] = useState<Object | null>(null);
+  const [toggledOption, setToggledOption] = useState<Object | null | string>(null);
 
-  function toggleOption(roadId: string) {
-    const selectedRoad = roads.find((road) => road.id === roadId) || null;
+  function toggleOption(option: string) {
+    if(option == "deleteOption"){
+      setToggledOption(option)
+    }else{
+    const selectedRoad = roads.find((road) => road.id === option) || null;
     console.log("Selected road:", selectedRoad);
-    setToggledOption(selectedRoad);
+    setToggledOption(selectedRoad);}
   }
 
   function untoggleOption() {

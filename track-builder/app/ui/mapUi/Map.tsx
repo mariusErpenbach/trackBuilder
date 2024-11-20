@@ -5,12 +5,18 @@ export default function Map(props: any) {
   const columns = Math.sqrt(mapSize);
 
   function handleTileClick(index: number) {
+    if(props.toggledOption==null){return""}  
+
     const clickedTile = document.getElementById("tile" + index);
+    if(props.toggledOption=="deleteOption"){
+      clickedTile? clickedTile.innerHTML = `${index}`:""
+    }else{
     if (clickedTile) {
-      clickedTile.innerText = props.toggledOption
-        ? `${props.toggledOption.symbol}`
-        : "No road selected";
-    }
+     let newTileContent = document.createElement("div")
+     newTileContent.className = props.toggledOption.id
+     clickedTile.innerText="";
+     clickedTile.appendChild(newTileContent)
+    }}
   }
 
   return (
@@ -22,7 +28,7 @@ export default function Map(props: any) {
           className="tile"
           onClick={() => handleTileClick(index)}
         >
-          {index + 1}
+          {index}
         </div>
       ))}
     </div>
