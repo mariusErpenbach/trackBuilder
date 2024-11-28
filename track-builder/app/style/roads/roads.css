@@ -1,6 +1,65 @@
-/* standart lane width = 20%*/
-.road-000{
-    background-color:grey;
-    width:20%;
-    height:100%;
+/* Container für die Straße */
+.road000 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 1fr; /* 3 gleichmäßige Zeilen für North, Core, South */
+    grid-template-columns: 1fr 0.5fr 1fr; /* 3 Spalten, mittlere für die Straße */
+    box-sizing: border-box;
+}
+
+/* Zentraler Kern */
+.core000 {
+    background-color: black;
+    grid-row: 2 / 3; /* Mittlere Reihe */
+    grid-column: 2 / 3; /* Mittlere Spalte */
+    width: 100%; /* Passt sich der Zelle an */
+    height: 100%; /* Passt sich der Zelle an */
+}
+
+/* Spur - North */
+.north000 {
+    background-color: black;
+    grid-row: 1 / 2; /* obere Reihe */
+    grid-column: 2 / 3; /* mittlere Spalte */
+    width: 100%; /* Passt sich der Zelle an */
+    height: 100%; /* Passt sich der Zelle an */
+}
+
+/* Spur - South */
+.south000 {
+    background-color: black;
+    grid-row: 3 / 4; /* untere Reihe */
+    grid-column: 2 / 3; /* mittlere Spalte */
+    width: 100%; /* Passt sich der Zelle an */
+    height: 100%; /* Passt sich der Zelle an */
+}
+
+/* Optionale Spur - East */
+.east000 {
+    background-color: black;
+    grid-row: 2 / 3; /* mittlere Reihe */
+    grid-column: 3 / 4; /* rechte Spalte */
+    width: 100%; /* Passt sich der Zelle an */
+    height: 100%; /* Passt sich der Zelle an */
+    display: none; /* Standardmäßig versteckt */
+}
+
+/* Optionale Spur - West */
+.west000 {
+    background-color: black;
+    grid-row: 2 / 3; /* mittlere Reihe */
+    grid-column: 1 / 2; /* linke Spalte */
+    width: 100%; /* Passt sich der Zelle an */
+    height: 100%; /* Passt sich der Zelle an */
+    display: none; /* Standardmäßig versteckt */
+}
+
+/* Globale Einstellung für die Zellen */
+.road000 > div {
+    width: 100%;  /* Passt sich der Breite der Zelle an */
+    height: 100%; /* Passt sich der Höhe der Zelle an */
 }

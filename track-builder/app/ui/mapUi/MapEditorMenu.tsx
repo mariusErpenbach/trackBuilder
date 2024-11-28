@@ -21,15 +21,19 @@ function selectOption (e:any){
 }
     return <div id="mapEditorMenu">
       <h3>Roads</h3>
+
+      
       <div id="roadBox">
-          <div className="roadOption" id="road-000" onClick={selectOption}>
+          <div className="roadOption" id="road000" onClick={selectOption}>
           ⬆️ 
           </div> 
       </div>
       <div id="optionBox">
-          <div className="editorOption" id="deleteOption" onClick={selectOption}> 
-          🧽
-          </div>
+          <div className="editorOption" id="newStartingPoint" onClick={selectOption}>start</div>
+          <div className="editorOption" id="newFinishingPoint" onClick={selectOption}>finish</div>
+          <div className="editorOption" id="deleteOption" onClick={selectOption}>
+            🧽
+            </div>
       </div>
 
           </div>

@@ -8,11 +8,11 @@ export default function MapPage() {
   const [toggledOption, setToggledOption] = useState<Object | null | string>(null);
 
   function toggleOption(option: string) {
-    if(option == "deleteOption"){
+    if(option == "deleteOption" || option =="newStartingPoint" || option =="newFinishingPoint"){
       setToggledOption(option)
-    }else{
+    }
+    else{
     const selectedRoad = roads.find((road) => road.id === option) || null;
-    console.log("Selected road:", selectedRoad);
     setToggledOption(selectedRoad);}
   }
 
